@@ -34,4 +34,4 @@ with DAG("my_dag", start_date=datetime(2021, 1 ,1), schedule_interval='@daily', 
         task_id="inaccurate",
         bash_command=" echo 'inaccurate'"
         )
-training_model_tasks >> choosing_best_model >> [accurate, inaccurate]
+training_model_tasks >> choosing_best_model >> [accurate, inaccurate]   
