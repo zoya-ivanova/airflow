@@ -29,14 +29,14 @@ generate_random_number = BashOperator(
 )
 
 # PythonOperator генерируем рандомное число, возводит его в квадрат и выводим в консоль исходное число и результат
-def quadrate_random_number():
+def square_random_number():
     random_number = int(open('/tmp/random_number.txt').read())
     squared_number = random_number ** 2
-    print(f"Random number: {random_number}, Squared: {squared_number}")
+    print(f"Случайное число: {random_number}, в квадрате: {squared_number}")
 
-quadrate_random_number_task = PythonOperator(
-    task_id='quadrate_random_number',
-    python_callable=quadrate_random_number,
+square_random_number_task = PythonOperator(
+    task_id='square_random_number',
+    python_callable=square_random_number,
     provide_context=True,
     dag=dag,
 )
@@ -56,5 +56,5 @@ fetch_weather_task = PythonOperator(
 )
 
 # Задаем последовательность выполнения задач
-generate_random_number >> quadrate_random_number_task >> fetch_weather_task
+generate_random_number >> square_random_number_task >> fetch_weather_task
 
