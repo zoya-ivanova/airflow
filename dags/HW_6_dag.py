@@ -56,5 +56,5 @@ fetch_weather_task = PythonOperator(
 )
 
 # Задаем последовательность выполнения задач
-generate_random_number >> square_random_number_task >> fetch_weather_task
+generate_random_number >> quadrate_random_number_task >> fetch_weather_task
 
