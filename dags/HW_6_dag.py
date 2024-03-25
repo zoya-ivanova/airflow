@@ -21,14 +21,14 @@ dag = DAG(
     catchup=False,
 )
 
-# BashOperator, ãåíåðèðóåò ðàíäîìíîå ÷èñëî è ïå÷àòàåò åãî â êîíñîëü
+# BashOperator, генерируем рандомное число, печатаем в консоль
 generate_random_number = BashOperator(
     task_id='generate_random_number',
     bash_command='echo $((RANDOM % 100))',  # Ãåíåðèðóåò ñëó÷àéíîå ÷èñëî îò 0 äî 99
     dag=dag,
 )
 
-# PythonOperator ãåíåðèðóåò ðàíäîìíîå ÷èñëî, âîçâîäèò åãî â êâàäðàò è âûâîäèò â êîíñîëü èñõîäíîå ÷èñëî è ðåçóëüòàò
+# PythonOperator генерируем рандомное число, возводит его в квадрат и выводим в консоль исходное число и результат
 def quadrate_random_number():
     random_number = int(open('/tmp/random_number.txt').read())
     squared_number = random_number ** 2
@@ -41,7 +41,7 @@ quadrate_random_number_task = PythonOperator(
     dag=dag,
 )
 
-# Ñîçäàåì îïåðàòîð, êîòîðûé îòïðàâëÿåò çàïðîñ î ïîãîäå
+# Задаем оператор для запроса прогноза погоды
 def fetch_weather():
     location = "Ìîñêâà"
     url = f"https://goweather.herokuapp.com/weather/{location}"
@@ -55,6 +55,6 @@ fetch_weather_task = PythonOperator(
     dag=dag,
 )
 
-# Çàäàåì ñëåäóþùèé ïîðÿäîê âûïîëíåíèÿ îïåðàòîðîâ:
+# Задаем последовательность выполнения задач
 generate_random_number >> square_random_number_task >> fetch_weather_task
 
