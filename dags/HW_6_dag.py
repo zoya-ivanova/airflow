@@ -13,6 +13,7 @@ from airflow.operators.bash_operator import BashOperator
 from airflow.operators.python_operator import PythonOperator
 from datetime import datetime
 import requests
+import random
 
 dag = DAG(
     'Sem6_HW',
