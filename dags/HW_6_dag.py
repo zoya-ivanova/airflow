@@ -30,9 +30,9 @@ generate_random_number = BashOperator(
 
 # PythonOperator генерируем рандомное число, возводит его в квадрат и выводим в консоль исходное число и результат
 def square_random_number():
-    random_number = int(open('/tmp/random_number.txt').read())
+    random_number = random.randnit(1, 100)
     squared_number = random_number ** 2
-    print(f"Случайное число: {random_number}, в квадрате: {squared_number}")
+    print(f"Случайное число: {random_number}, возведенное в квадрат, равно: {squared_number}")
 
 square_random_number_task = PythonOperator(
     task_id='square_random_number',
