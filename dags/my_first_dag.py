@@ -3,10 +3,8 @@ from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
 
-def print_hello(name):
-    return f'Hello, {name}'
-
-your_name = 'Zoya'
+def print_hello():
+    return 'Hello, Zoya!'
 
 dag = DAG('my_first_dag', description='Hello World DAG',
           schedule_interval='0 12 * * *',
