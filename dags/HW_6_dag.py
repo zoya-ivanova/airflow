@@ -24,7 +24,7 @@ dag = DAG(
 # BashOperator, генерируем рандомное число, печатаем в консоль
 generate_random_number = BashOperator(
     task_id='generate_random_number',
-    bash_command='echo $((RANDOM % 100))',  # Ãåíåðèðóåò ñëó÷àéíîå ÷èñëî îò 0 äî 99
+    bash_command='echo $((RANDOM % 100))',  
     dag=dag,
 )
 
@@ -43,7 +43,7 @@ quadrate_random_number_task = PythonOperator(
 
 # Задаем оператор для запроса прогноза погоды
 def fetch_weather():
-    location = "Ìîñêâà"
+    location = "Москва"
     url = f"https://goweather.herokuapp.com/weather/{location}"
     response = requests.get(url)
     weather_data = response.json()
