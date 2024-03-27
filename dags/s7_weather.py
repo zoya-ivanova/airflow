@@ -5,8 +5,8 @@ from airflow.providers.http.operators.http import HttpOperator
 from airflow.models import Variable
 
 
-API_KEY = Variable.get('secret_openweather_key') 
-URL = f'http://api.openweathermap.org/geo/1.0/direct?q=Cairo&limit=5&appid={API key}' 
+OPENWEATHER_KEY = Variable.get("secret_openweather_key") 
+URL = f'http://api.openweathermap.org/geo/1.0/direct?q=Cairo&limit=5&appid={OPENWEATHER_KEY}' 
 
 
 def choosing_description_weather(ti):
