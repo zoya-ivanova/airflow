@@ -44,7 +44,7 @@ def ProcessEmployees():
     @task
     def get_data():
         # NOTE: configure this as appropriate for your airflow environment
-        data_path = "/home/malgepav/airflow/data_source"
+        data_path = "/zoya-ivanova/airflow/data_source"
         os.makedirs(os.path.dirname(data_path), exist_ok=True)
         url = "https://raw.githubusercontent.com/apache/airflow/main/docs/apache-airflow/tutorial/pipeline_example.csv"
         response = requests.request("GET", url)
@@ -97,7 +97,7 @@ def ProcessEmployees():
         # ti = kwargs["ti"]
         # number_of_added_rows = ti.xcom_pull(task_ids='merge_data')
         # if number_of_added_rows > 0:
-        email = 'malgepav@yandex.ru'
+        email = 'zivanova2019@gmail.com'
         msg = "Added 3452435 rows"
         subject = "Added rows"
         EmailOperator(task_id="send_email",to=email, subject=subject, html_content=msg)
