@@ -7,7 +7,7 @@ import requests
 
 
 OPENWEATHER_KEY = Variable.get("secret_openweather_key") 
-URL = f'http://api.openweathermap.org/geo/1.0/direct?q=Cairo&limit=5&appid={OPENWEATHER_KEY}' 
+# URL = f'http://api.openweathermap.org/geo/1.0/direct?q=Cairo&limit=5&appid={OPENWEATHER_KEY}' 
 URL_OPENWEATHER = f'/data/2.5/weather?lat=59.57&lon=30.19&exclude=current&appid={OPENWEATHER_KEY}&units=metric'
 
 def choosing_description_weather(ti):
