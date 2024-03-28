@@ -4,7 +4,7 @@ from airflow.operators.python import BranchPythonOperator, PythonOperator
 from airflow.providers.http.operators.http import HttpOperator
 from airflow.models import Variable
 
-# OPENWEATHER_KEY = Variable.get('secret_openweather_key')
+OPENWEATHER_KEY = Variable.get('secret_openweather_key')
 URL_OPENWEATHER = f'http://api.openweathermap.org/geo/2.5/weather?lat=59.57&lon=30.19&exclude=current&appid={OPENWEATHER_KEY}&units=metric'
 
 def choosing_description_weather(ti):
