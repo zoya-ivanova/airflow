@@ -11,7 +11,7 @@ import requests
 #     weather_data = response.json()
 #     print(f"Weather in {location}: {weather_data['temperature']}°C, {weather_data['description']}")
 
-OPENWEATHER_KEY = f65a2715310762fbc4901b222202fbdf
+OPENWEATHER_KEY = 'f65a2715310762fbc4901b222202fbdf'
 # URL = f'http://api.openweathermap.org/geo/1.0/direct?q=Cairo&limit=5&appid={OPENWEATHER_KEY}' 
 URL_OPENWEATHER = f'http://api.openweathermap.org/geo/2.5/weather?lat=59.57&lon=30.19&exclude=current&appid={OPENWEATHER_KEY}&units=metric'
 
